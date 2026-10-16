@@ -39,7 +39,12 @@
 
             atualizarEstoque(produto);
 
-            return null;
+            pedido.setId(proximoId);
+            proximoId++;
+            pedido.setStatus("CONFIRMADO");
+            pedidos.add(pedido);
+
+            return pedido;
         }
 
         private void atualizarEstoque(ProdutoResposta produto) {

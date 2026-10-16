@@ -51,4 +51,23 @@ public class    ProdutoController {
         return null;
     }
 
+    @GetMapping
+    public List<Produto> listarProdutos() {
+        return produtos;
+    }
+
+    @DeleteMapping("/{id}")
+    public Produto deletarProduto(@PathVariable("id") Long id) {
+        for (int i = 0; i < produtos.size(); i++) {
+            Produto produto = produtos.get(i);
+
+            if (produto.getId().equals(id)) {
+                produtos.remove(i);
+                return produto;
+            }
+        }
+
+        return null;
+    }
+
 }
